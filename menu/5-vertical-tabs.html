@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <section>
+     <div class="tab">
+        <button class="tablinks active" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+      </div>
+      
+      <!-- Tab content -->
+      <div id="London" class="tabcontent activeContent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+      </div>
+      
+      <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+      </div>
+      
+      <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+      </div>    
+    </section>
+        <style>
+          section{
+            display: flex;
+          }
+          section div{
+            flex: 5; 
+          }
+          .tab{
+            flex: 1;
+            background: gray;
+            display:flex; 
+            flex-direction: column;
+          }
+          .tab button{
+            flex: 1;
+            display: block;
+            border: none; 
+            padding: 10px 10px;  
+            margin: 0px;                        
+          }
+          .tab button:hover{
+              cursor: pointer;
+              background: brown;
+          }
+          .active{
+            background: brown;
+          }
+          .tabcontent{
+              padding: 10px;
+              animation: fadeEffect 1s; /* Fading effect takes 1 second */
+              opacity: 0;
+              display: none;
+              background: gray;
+          }
+          .activeContent{
+              transition: all 0.5s ease;
+              opacity: 1;
+              display: initial;
+          }
+         
+          @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+          }
+
+      </style>
+      <script>
+          function openCity(e,city){
+            const citys =document.querySelector('#'+city);
+              if(e.target.classList.contains('active')){
+                e.target.classList.remove('active');
+                citys.classList.remove('activeContent');
+              }else{
+                const tabs = document.querySelectorAll('.tab button');
+                tabs.forEach((el)=>{
+                    el.classList.remove('active');
+                });  
+                const tabContents = document.querySelectorAll('.tabcontent');
+                tabContents.forEach((el)=>{
+                    el.classList.remove('activeContent');
+                
+                });
+                citys.classList.add('activeContent');
+                e.target.classList.add('active');
+              }
+
+          }
+      </script>
+</body>
+</html>

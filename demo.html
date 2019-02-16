@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem laboriosam praesentium consequuntur voluptate, excepturi sed nemo sint iste odit? Id minima voluptate placeat at eaque ad animi hic voluptates omnis.</p>
+    </div>    
+    <button class="ii">
+        demo
+    </button>
+    <style>
+        div{
+            transition: all 3s ease 1s;
+            /* height: 0px;
+            overflow: hidden; */
+            display: none;
+        }
+    </style>
+    <script>
+        const ii = document.querySelector('.ii');
+        ii.addEventListener('click',()=>{
+            const myDiv = document.querySelector('div');
+            // myDiv.style.height=myDiv.scrollHeight+"px";
+            myDiv.style.display = 'initial';
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>icon bar</title>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="menu" >
+        <ul class="container">
+            <a href="#" class="menu"></a>
+            <li>
+                <a href="" class="action"><i class="fa fa-home"></i></a>
+            </li>
+            <li>
+                <a href=""> <i class="fa fa-search"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-envelope"></i></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-globe"></i></a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <!-- horizontal -->
+    <!-- <style>
+        .container{
+            display: flex;
+        }
+        .container li{
+            list-style: none;
+            flex: 1;
+            text-align: center;
+        }
+        .fa{
+            font-size: 2rem;
+        }
+        .container a{
+            display: block;
+            background: #959595cc;
+            padding: 10px 0px;
+            transition: all 0.5s ease;
+        }
+        .container i{
+            transition: all 0.5s ease;
+
+        }
+        .container .action{
+            background: #551a8b;
+        }
+        .container .action i{
+            color: antiquewhite;
+        }
+
+        .container a:hover{
+            background: #551a8b;
+        }
+        .container a:hover i{
+            color: antiquewhite;
+        }
+
+        ul{
+            margin: 0px auto;
+            padding: 0;
+        }
+    </style> -->
+    
+    <!-- vertical -->
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+        *,::before,::after{
+            box-sizing: inherit;
+        }
+        .container li{
+            width: 90px;
+            list-style: none;
+            
+            
+        }
+        .container a{
+            padding: 5px 0px;
+            font-size: 2rem;
+            display: block;
+            text-align: center;
+            background: #959595cc;
+        }
+        .container .action{
+            background: #551a8b;
+        }
+        .container .action i{
+            color: antiquewhite;
+        }
+
+        .container a:hover{
+
+            background: #551a8b;
+        }
+        .container a:hover i{
+            color: antiquewhite;
+        }
+
+        ul{
+            margin: 0px auto;
+            padding: 0;
+        }
+        .container>a{
+            display: none;
+        }
+    </style>
+</body>
+</html>

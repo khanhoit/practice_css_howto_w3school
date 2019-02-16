@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>responsive topnav</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div style="padding-left:16px">
+        <h2>Responsive Topnav Example</h2>
+        <p>Resize the browser window to see how it works.</p>
+    </div>
+    <style>
+    .topnav{
+        position: relative;
+        overflow: hidden;
+        background: gray;
+    }
+    .topnav a{
+        padding: 14px 16px;
+        float: left;
+        text-decoration: none;
+        text-align: center;
+        color: black;
+    }
+    .topnav a.active{
+        background: green;
+    }
+    .topnav a.icon{
+        display: none;
+
+    }
+    .topnav a:hover{
+        background: white;
+    }
+    .topnav a.icon:hover{
+        background: red;
+    }
+    @media all and (max-width:1000px){
+        .topnav a:not(:first-child){
+            display: none;
+        }
+
+        .topnav a{
+            width: 100%;
+            text-align: left;
+        }
+        .topnav a.icon{
+            display: block;
+            position: absolute;
+            z-index: 1;
+            width: auto;
+            right: 0;
+        }
+    }
+    </style>
+    <script>
+        function myFunction(){
+            const one =document.querySelector('.topnav a:not(:first-child)');
+            const all =document.querySelectorAll('.topnav a:not(:first-child)');
+            if(one.style.display==='block'){
+                all.forEach(el=>{
+                    el.style.display="none";
+                })
+            }else{
+                all.forEach(el=>{
+                    el.style.display="block";
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>

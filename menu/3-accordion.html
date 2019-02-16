@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <p>Lorem ipsum...</p>
+    </div>
+    
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <p>Lorem ipsum...</p>
+    </div>
+    
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+      <p>Lorem ipsum...</p>
+    </div>     
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+        *,::before,::after{
+            box-sizing: inherit;
+        }
+        .accordion{
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-size: 1.5rem;
+            color: rgba(0, 0, 0, 0.5);
+            margin: 2px 0px;
+            border: none;
+            border-radius: 5px;
+        }
+        .accordion:hover{
+            background: gray;
+            cursor: pointer;
+        }
+        .accordion:after{
+            content: "+";
+            position: absolute;
+            right: 15px;
+        }
+       
+        .panel{
+            transition: all 0.2s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            background: brown;
+            padding:0px 10px;
+        }
+        .show{
+            opacity: 1;
+            max-height: 100%;
+        }
+        .active:after{
+            content: "-";
+        }
+    </style>
+    <script>
+        const accordion = document.querySelectorAll('.accordion');
+        accordion.forEach((el,index)=>{
+            el.addEventListener('click',(e)=>{
+                el.classList.toggle('active');
+                const panel = el.nextElementSibling;
+                panel.classList.toggle('show');     
+            })
+        })
+    </script>
+</body>
+</html>
