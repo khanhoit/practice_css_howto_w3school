@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>12 search menu</title>
+</head>
+
+<body>
+    <h2>Search Menu</h2>
+    <p>Start to type for a specific category inside the search bar to "filter" the search options.</p>
+
+    <div class="row">
+        <div class="left" style="background-color:#bbb;">
+            <h2>Menu</h2>
+            <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+            <ul id="myMenu">
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">Python</a></li>
+                <li><a href="#">jQuery</a></li>
+                <li><a href="#">SQL</a></li>
+                <li><a href="#">Bootstrap</a></li>
+                <li><a href="#">Node.js</a></li>
+            </ul>
+        </div>
+
+        <div class="right" style="background-color:#ddd;">
+            <h2>Page Content</h2>
+            <p>Start to type for a specific category inside the search bar to "filter" the search options.</p>
+            <p>Some text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
+            <p>Some other text..Some text..Some text..Some text..Some text..Some text..Some text..Some text..</p>
+            <p>Some text..</p>
+        </div>
+    </div>
+    <style>
+        hmtl,body{
+            box-sizing: border-box;
+        }
+        *,:before,:after{
+            box-sizing: inherit;
+        }
+        .row {
+            display: flex;
+        }
+        .row .left{
+            flex: 1 1 20%;
+        }
+        .row .right{
+            flex: 1 1 80%;
+
+        }
+        .left h2{
+            text-align: center;
+        }
+        .left *{
+            width: 100%;
+            padding: 10px 0px;
+        }
+        #myMenu{
+            padding: 0px;
+            margin: 0;
+        }
+        #myMenu li{
+            list-style: none;
+            padding: 0px;
+
+        }
+        #myMenu li a{
+            display: block;
+            padding: 10px 12px;
+            text-decoration: none;
+            color: black;
+        }
+        #myMenu li a:hover{
+            background: red;
+
+        }
+        .active{
+            display: none;
+        }
+        input[type='text']{
+            padding: 10px 12px;
+            border: none;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function myFunction(){
+            const myMenu = document.querySelector('#myMenu');
+            const mySearch = document.querySelector('#mySearch');
+            if(mySearch.value){
+                myMenu.style.display="none";
+            }else{
+                myMenu.style.display="block";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>18 hover-side bar button</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="about">About</a>
+        <a href="#" id="blog">Blog</a>
+        <a href="#" id="projects">Projects</a>
+        <a href="#" id="contact">Contact</a>
+      </div>
+      
+      <div style="margin-left:80px;height: 2000px;">
+        <h2>Hoverable Sidenav Buttons</h2>
+        <p>Hover over the buttons in the left side navigation to open them.</p>
+      </div>
+      <style>
+          body{
+              padding: 0px;
+              margin: 0px;
+          }
+          .sidenav{
+            position: fixed;
+            margin: 0px;
+          }
+          .sidenav a{
+            position: relative;
+            overflow: hidden;
+            left: -120px;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            padding: 14px 36px;
+            transition: all 0.5s ease-in-out;
+            text-decoration: none;
+            border-radius: 0px 10px 10px 0px;
+            margin: 10px 0px;
+          }
+          .sidenav a:hover{
+            left: 0px;
+          }
+          #about{
+              background: #1796b9;
+          }
+          #blog{
+              background: #b97e17;
+          }
+          #projects{
+              background: #9e17b9;
+          }
+          #contact{
+              background: #b91717;
+          }
+      </style>
+</body>
+</html>

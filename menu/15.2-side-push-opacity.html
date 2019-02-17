@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>15 side navigation</title>
+</head>
+
+<bodyx>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="overlay-close" onclick="closeNav()">
+    </div>
+    <div class="content">
+        <h2>Animated Sidenav Example</h2>
+        <p>Click on the element below to open the side navigation menu.</p>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+    </div>
+    <style>
+    .overlay-close{
+       position: fixed;
+       width: 100%;
+       height: 100%;
+       left: 0;
+       top: 0;
+       background: rgba(80, 80, 80, 0.5);
+       z-index: -1;
+    }
+    .onclose{
+       z-index: 1;
+    }
+    .sidenav{
+        overflow: hidden;
+        position: absolute;
+        z-index: 999;
+        width: 0vw;
+        height: 100%;
+        background: gray;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        flex-direction: column;
+        text-align: center; 
+        transition: all 0.5s ease-in-out;
+    }
+    .sidenav a{
+        display:block;
+        text-decoration: none;
+        padding: 14px 16px;
+        color:moccasin;
+    }
+    .sidenav a:hover{
+        color: aqua;
+    }
+    .sidenav a.closebtn{
+        align-self: flex-end;
+        display: inline;
+        text-align: right;
+    }
+    .active{
+        width: 20vw;
+    }
+    .content{
+        position: relative;
+        left: 0vw;
+        transition: all 0.5s ease-in-out;
+    }
+    .active_content{
+        left: 20vw;
+    }
+    </style>
+    <script>
+        function openNav(){
+            const sidenav = document.querySelector('.sidenav');
+            const mycontent = document.querySelector('.content');
+            sidenav.classList.add('active');
+            mycontent.classList.add('active_content');
+            document.body.style.backgroundColor = "rgba(0,0,0,0.3)";
+            const overlay_close = document.querySelector('.overlay-close');
+            overlay_close.classList.add('onclose');
+
+        }
+        function closeNav(){
+            const sidenav = document.querySelector('.sidenav');
+            sidenav.classList.remove('active');
+            const mycontent = document.querySelector('.content');
+            mycontent.classList.remove('active_content');
+            document.body.style.backgroundColor = "white";
+            const overlay_close = document.querySelector('.overlay-close');
+            overlay_close.classList.remove('onclose');
+        }
+    
+    </script>
+</body>
+
+</html>
