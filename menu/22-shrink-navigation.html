@@ -10,8 +10,8 @@
 
 <body>
     <div id="navbar">
-        <a href="#default" id="logo">CompanyLogo</a>
-        <div id="navbar-right">
+        <a href="#default" id="logo" class="">CompanyLogo</a>
+        <div id="navbar-right" class="">
             <a class="active" href="#home">Home</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
@@ -36,7 +36,6 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     }
-
     #navbar{
         width: 100%;
         overflow: hidden;
@@ -44,25 +43,63 @@
         background: gray;
         top: 0;
         padding:90px 10px;
+        transition: all 0.5s ease; 
     }
     
-    #navbar a{  
+    #navbar>div a{  
         float: left;
         text-align: center;
         color: black;
-        float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 1rem; 
+        line-height: 25px;
+        border-radius: 4px;
+        transition: all 0.5s ease; 
     }
+    #navbar>div a:not(:first-child):hover{
+        background: red;
+    }  
     #navbar>div{
         float: right;
     }  
+    #logo{
+        color: black;
+        text-decoration: none;
+        font-size: 2rem;
+        font-weight:bold;
+    }
+    #logo:hover{
+        opacity: 0.5;
+        transition: all 0.5s ease; 
+    }
+    .active{
+        background: green;
+    }
+    .onscroll{
+        font-size: 1.2rem !important;
+    }
+    .onscroll a{
+        font-size: 0.8rem !important;
+    }
+    .navbar-scroll{
+        padding: 24px 10px !important;
+    }
     </style>
+    <script>
+        window.onscroll = function(){
+            console.log(window.pageYOffset);
+            if(window.pageYOffset>20){
+                document.querySelector('#logo').classList.add('onscroll');
+                document.querySelector('#navbar-right').classList.add('onscroll');
+                document.querySelector('#navbar').classList.add('navbar-scroll');
+            }else{
+                document.querySelector('#logo').classList.remove('onscroll');
+                document.querySelector('#navbar-right').classList.remove('onscroll');
+                document.querySelector('#navbar').classList.remove('navbar-scroll');
+            }
+        }
+    </script>
 </body>
 
 </html>

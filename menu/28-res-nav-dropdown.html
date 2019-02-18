@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>28 res nav dropdown</title>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="#home" class="active">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="#about">About</a>
+        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+    <div style="padding-left:16px">
+        <h2>Responsive Topnav with Dropdown</h2>
+        <p>Resize the browser window to see how it works.</p>
+        <p>Hover over the dropdown button to open the dropdown menu.</p>
+    </div>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        html,body{
+            margin: 0;
+        }
+        .topnav{
+            position: relative;
+            top: 0;
+            left: 0;
+            background: #272727;
+            display: flex;
+            padding: 8px 16px;
+        }
+        .topnav a{
+            color: white;
+            text-decoration: none;
+            padding: 14px 16px;
+            transform: all 0.5s ease;
+        }
+        .topnav>a:hover{
+            opacity: 0.5;
+        }
+        .topnav>a:last-child{
+            display: none;
+        }
+        .topnav>.dropdown>.dropbtn{
+            background: rgba(1,1,1,0);
+            padding: 15px 16px;
+            border: 0px;
+            color: white;
+        }
+        .topnav>.dropdown>.dropbtn:hover{
+            cursor: pointer;
+            color:rgba(255,255,255,0.5);
+        }
+        .topnav>.dropdown>.dropbtn:focus{
+            outline: none;
+        }
+        .topnav>.dropdown>.dropdown-content{
+            position: absolute;
+            z-index: 999;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #272727;
+            height: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .topnav>.dropdown:hover .dropdown-content{
+            height: 150px;
+        }
+        .topnav>.dropdown>.dropdown-content a{
+            padding: 14px 126px 14px 16px;
+            margin: 2px 0;
+        
+        }
+        .topnav>.dropdown>.dropdown-content a:hover{
+            color:rgba(255,255,255,0.5);
+        }
+        .topnav>.dropdown>.dropdown-content:hover{
+            color:rgba(255,255,255,0.5);
+        }
+        .active{
+            outline: 3px;
+            outline-color: rgba(58, 166, 255, 0.63);
+            background: #333;
+        }
+        .active-dropdown-content{
+            
+        }
+        @media all and (max-width:1000px){
+
+           .topnav{
+               flex-direction: row;
+               flex-wrap: wrap;
+           }
+           .topnav>*{
+               flex: 1 1 100%;
+           }
+          
+           .topnav>*:not(:first-child){
+               display: none;
+           }
+           .topnav>a:last-child{
+               display: block;
+               position: absolute;
+               z-index: 999;
+               right: 16px;
+               top: 6px;
+           }
+           .topnav>a:last-child:hover{
+               background: #f00;
+           }
+            .topnav>.dropdown>.dropdown-content a{
+                margin-left: 10px;
+                font-size: 0.8rem;
+            }
+           .topnav>.dropdown>.dropdown-content{
+            position: relative;
+            background: #272727;
+            height: initial !important;
+            transition: all 0.5s ease-in-out;
+            }   
+            .active-max1000{
+                display: block !important;
+            }
+        }
+    </style>
+    <script>
+        function myFunction(){
+            let ii = document.querySelectorAll('.topnav>*:not(:first-child)');
+            ii.forEach(el=>{
+                el.classList.toggle('active-max1000');
+            });
+        }
+    </script>
+</body>
+
+</html>

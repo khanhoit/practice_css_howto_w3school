@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>25 hover drop down</title>
+</head>
+
+<body>
+    <h2>Hoverable Dropdown</h2>
+    <p>Move the mouse over the button to open the dropdown menu.</p>
+
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown .dropbtn{
+            border: none;
+            padding: 14px 16px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .dropdown .dropdown-content{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            width: 200%;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.4s ease-in-out;
+
+        }
+        .dropdown .dropdown-content a{
+            color: black;
+            text-decoration: none;
+            padding: 14px 26px;
+            display: inline;
+            text-align: center;
+            background: rgba(1,1,1,0.5);
+            margin: 2px 0;
+        }
+        .dropdown .dropdown-content a:hover{
+            background: rgba(1,1,1,0.3);
+        }
+        .dropdown .dropbtn:hover {
+            background: gray;
+            cursor: pointer;
+        }
+        .dropdown:hover .dropdown-content{
+            height: 300%;
+        }
+    </style>
+</body>
+
+</html>
