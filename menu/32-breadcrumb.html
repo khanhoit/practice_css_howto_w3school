@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>32 breadcrumb</title>
+</head>
+
+<body>
+    <ul class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Pictures</a></li>
+        <li><a href="#">Summer 15</a></li>
+        <li>Italy</li>
+    </ul>
+    <style>
+        .breadcrumb{
+            display: flex;
+            list-style: none;
+        }
+        .breadcrumb li{
+            padding: 4px 16px;
+            position: relative;
+        }
+        .breadcrumb li:not(:last-child)::after{
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1px;
+            height: 60%;
+            background: #000;
+            transform: rotate(6deg);
+        }
+        .breadcrumb li:last-child{
+            border: none;
+        }
+    </style>
+</body>
+
+</html>

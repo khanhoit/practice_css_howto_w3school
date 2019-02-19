@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>30 mega menu</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <div class="header">
+                    <h2>Mega Menu</h2>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <h3>Category 1</h3>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                    <div class="column">
+                        <h3>Category 2</h3>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                    <div class="column">
+                        <h3>Category 3</h3>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="padding:16px">
+        <h3>Responsive Mega Menu (Full-width dropdown in navbar)</h3>
+        <p>Hover over the "Dropdown" link to see the mega menu.</p>
+        <p>Resize the browser window to see the responsive effect.</p>
+    </div>
+    <style>
+        html,body{
+            margin: 0;
+            font-family: sans-serif;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        .navbar *{
+            font-size: 1.1rem;
+        }
+        .navbar{
+            position: relative;
+            display: flex;
+            background: #7e7e7e;
+        }
+        .navbar a{
+            text-decoration: none;
+            color: black;
+            padding: 7px 16px;
+        }
+        .navbar a:hover{
+            color: white;
+        }
+        
+        .navbar button{
+            padding: 7px 16px;
+            background: rgba(1,1,1,0);
+            border: none;
+        }
+        .navbar button:hover{
+            color: white;
+            cursor: pointer;
+        }
+        .navbar button:focus{
+            outline: none;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+        .dropdown-content{
+            position: absolute;
+            left: 0;
+            background: #333;
+            width: 100%;
+            background: red;
+            display: none;
+        }
+        .dropdown-content .row{
+            display: flex;
+            flex-wrap: wrap;
+            background: rebeccapurple;
+        }
+        .dropdown-content .row .column{
+            text-align: center;
+            flex: 1 1 33.33%;
+            display: flex;
+            flex-direction: column;
+        }
+        @media all and (max-width:1000px){
+
+        .dropdown-content .row .column{
+            flex-basis: 100%;
+            }
+        }
+    </style>
+</body>
+
+</html>
