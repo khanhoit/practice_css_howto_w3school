@@ -49,51 +49,93 @@
       box-sizing: border-box;
     }
     .slideshow-container{
-      position: relative;
       display: flex;
-      height: 60vh;
+      max-width: 1000px;
+      margin: auto;
       overflow: hidden;
-      width: 100%;
+      height: 300px;
+      flex-flow: row;
+      color: white;  
+      position: relative;
+      
     }
-    .slideshow-container a{
+    .slideshow-container>a{
       position: absolute;
-      background: rgba(1,1,1,0.5);
-      top: 0;
-      padding:0 20px;
-      border: 1px solid red;
+      top: 50%;
+      padding: 25px;
+      background: rgba(1, 1, 1, 0.3);
+      margin-top: -50px;
     }
-    .slideshow-container a:last-child{
+    .slideshow-container>a:hover{
+      background: rgba(1, 1, 1, 0.8);
+      cursor: pointer;
+    }
+    .slideshow-container>a.next{
       right: 0;
     }
-    .mySlides>div{
+    .mySlides{
+      position: relative;   
+      display: none; 
+    }
+   
+    .numbertext{
       position: absolute;
-      z-index: 1;
+      padding: 10px;
     }
     .mySlides .text{
-      bottom: 0;
+      width: 100%;
+      position: absolute;
+      z-index: 999;
+      bottom: 8px;
+      text-align: center;
     }
-
-
-
-
-
-
-
-
     .dot{
-      cursor: pointer;
-      height: 15px;
+      background: white;
       width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
+      height: 15px;
+      margin:0px 5px;
       display: inline-block;
+      border-radius: 50%;
+      background: gray;
     }
-    
-    .fade:not(:first-child){
-      display: none;
+    .dot:hover{
+      cursor: pointer;
+    }
+    .active_dot{
+      border: 2px solid #9E9E9E;
+      background: white;  
+    }
+    .active_mySlides{
+      display: inline;
     }
   </style>
+  <script>
+    var slideIndex=1;
+    function currentSlide(number){
+      showSlide(slideIndex=number);
+    }
+    function plusSlides(check){
+      showSlide(slideIndex += check);
+    }
+    function showSlide(number){
+      let mySlides = document.querySelectorAll('.mySlides');
+      let dots = document.querySelectorAll('.dot');
+      if(slideIndex < 1){
+        slideIndex = mySlides.length;
+      }
+      if(slideIndex > mySlides.length){
+        slideIndex = 1;
+      }
+
+      for (let i=0;i< mySlides.length;i++) {
+        mySlides[i].classList.remove('active_mySlides');
+        dots[i].classList.remove('active_dot');
+      }
+      dots[slideIndex-1].classList.add('active_dot');
+      mySlides[slideIndex-1].classList.add('active_mySlides');
+    }
+    currentSlide(slideIndex);
+  </script>
 </body>
 
 </html>
