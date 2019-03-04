@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 1 - offsetWidth </title>
+</head>
+<body>
+    <div class="offsetWidth">
+        trả lại width với height của element bao gồm cà scrollbar and border nhưng return 0 nếu set display:"none"
+    </div>
+    <style>
+        .offsetWidth{
+            width: 100px;
+            height: auto;
+            display: none;
+        }
+    </style>
+    <script>
+        let offsetWidth = document.querySelector('.offsetWidth');
+        console.log(offsetWidth.offsetWidth);
+        
+    </script>
+</body>
+</html>

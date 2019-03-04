@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2 pageXOffset</title>
+</head>
+<body>
+    <div id="pageXOffset">
+        nó tương tượng như scrollx chỉ có ở window
+    </div>
+    <style>
+        #pageXOffset{
+            height: 5000px;
+            width: 5000px;
+        }
+    </style>
+    <Script>
+    
+    window.onscroll = function(){
+        console.log(window.pageYOffset);
+        console.log(window.pageXOffset);
+    }
+    </Script>
+</body>
+</html>

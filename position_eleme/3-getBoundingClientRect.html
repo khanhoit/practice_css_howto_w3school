@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3 - getBoundingClientRect</title>
+</head>
+<body>
+    <h2>
+        return the size of an element and position relative of viewport
+    </h2>
+    <div id="getBoundingClientRect">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, aliquid!
+    </div>
+    <style>
+        #getBoundingClientRect{
+            position: relative;
+            height: 160px;
+            overflow: hidden;
+            border: 1px solid red;
+        }        
+    </style>
+    <script>
+        let body = document.querySelector('#getBoundingClientRect');
+        getBoundingClientRect.onresize = function(){
+            console.log('hii');
+            console.log(getBoundingClientRect.getBoundingClientRect());
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5 responsive grid</title>
+</head>
+<body>
+    <div id="show">
+        <span id="closeShow">&times;</span>
+        <div>
+            <img src="https://picsum.photos/1200/900/?random=1" alt="" width="100%">
+        </div>
+    </div>
+    <div class="container" id="gallery">
+    </div>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            position: relative;
+            margin: 0;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            grid-auto-flow: dense;
+            grid-auto-rows: 50px;
+        }
+        .item:hover{
+                cursor: pointer;
+                opacity: 0.5;
+        }
+        .item{
+            overflow: hidden;
+            grid-template-columns: 1;
+            grid-template-rows: 1;
+            display: grid;
+            align-content: center;
+
+        }
+        .item img{
+            align-items: center;
+            vertical-align: middle;
+        }
+        .col1{
+            grid-column: span 1;
+        }
+        .col2{
+           grid-column: span 2;
+        }
+        .col3{
+           grid-column: span 3;
+        }
+        .col4{
+           grid-column: span 4;
+        }
+        .col5{
+           grid-column: span 5;
+        }
+        .row1{
+
+            grid-row: span 1;
+        }
+        .row2{
+            grid-row: span 2;
+        }
+        .row3{
+            grid-row: span 3;
+        }
+        .row4{
+            grid-row: span 4;
+        }
+        .row5{
+            grid-row-start: span 5;
+        }
+        .myborder{
+            border: 1px solid red;
+        }
+        #show{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 30px 10px;
+            height: 100vh;
+            background: rgba(1,1,1,0.9);
+            overflow: hidden;
+            display: none;
+            z-index: 999;
+        }
+
+        #show span{
+            position: absolute;
+            color: red;
+            top: 0;
+            right: 0;
+            padding: 0px 10px;
+            font-weight: bold;
+            font-size: 2.3rem;
+        }
+        #show span:hover{
+            cursor: pointer;
+            opacity: 0.5;
+        }
+        #show div{
+            margin: 0 auto;
+            width: 60%;
+            display: block;
+        }
+
+    </style>
+    <script>
+        grid_gallery();
+
+        function randomNumber(limit){
+            return Math.floor(Math.random()*limit)+1;
+        }
+        function generaHTML([row,col]){
+            console.log(row);
+
+            return `<div class="item col${col} row${row}"><img src="https://picsum.photos/1200/900/?random=1" alt="" width="100%"></div>`
+        }
+        function grid_gallery(){
+            const data = Array.from({length:20},()=>[randomNumber(4),randomNumber(4)]).concat([[1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1], [1,1]]);
+
+            let dataHTML = data.map(generaHTML).join('');
+            gallery.innerHTML = dataHTML;
+            let items = document.querySelectorAll('.item');
+            items.forEach(item =>item.addEventListener('click',showShow));
+        }
+
+        function showShow(){
+            show.style.display = "block";
+        }
+        closeShow.onclick =  function(){
+            show.style.display = "none";
+        }
+
+
+    </script>
+
+</body>
+</html>

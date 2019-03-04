@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>7 meet the team</title>
+</head>
+
+<body>
+    <h2>Responsive "Meet The Team" Section</h2>
+    <p>Resize the browser window to see the effect.</p>
+    <br>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="https://picsum.photos/200/200" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>Jane Doe</h2>
+                    <p class="title">CEO & Founder</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://picsum.photos/200/200" alt="Mike" style="width:100%">
+                <div class="container">
+                    <h2>Mike Ross</h2>
+                    <p class="title">Art Director</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="https://picsum.photos/200/200" alt="John" style="width:100%">
+                <div class="container">
+                    <h2>John Doe</h2>
+                    <p class="title">Designer</p>
+                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                    <p>example@example.com</p>
+                    <p><button class="button">Contact</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .row{
+            display: flex;
+            justify-content: center;
+        }
+        .column{
+            flex: 1 1 33%;
+            margin: 10px 10px;
+            box-shadow: 0 4px 8px 0 rgba(1, 1, 1, 0.4);
+        }
+        .container{
+            padding: 0px 20px;
+        }
+        .button{
+            width: 100%;
+            padding: 10px 0;
+            color: white;
+            background: #000;
+            border: none;
+        }
+        .column:hover{
+            cursor: pointer;
+        }
+        @media all and (max-width: 600px){
+            .row{
+                flex-wrap: wrap;
+
+            }
+            .column{
+                flex-basis:100%;
+            }
+        }
+    </style>
+
+</body>
+
+</html>

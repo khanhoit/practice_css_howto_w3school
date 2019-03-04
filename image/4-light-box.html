@@ -27,7 +27,7 @@
   <span class="close cursor" onclick="closeModal()">&times;</span>
   <div class="modal-content">
 
-    <div class="mySlides">
+    <div class="mySlides active_mySlides">
       <div class="numbertext">1 / 4</div>
       <img src="https://picsum.photos/1200/300/?random=1" style="width:100%">
     </div>
@@ -51,7 +51,9 @@
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
     <div class="caption-container">
-      <p id="caption"></p>
+      <p id="caption">
+        fdsf
+      </p>
     </div>
 
 
@@ -74,6 +76,10 @@
       }
       body{
           position: relative;
+          padding: 0;
+          margin: 0;
+          top: 0;
+          width: 100%;
       }
       .row{
           display: inline-flex;
@@ -86,11 +92,116 @@
           cursor: pointer;
       }
 
-      .myModal{
+      .modal{
           position: absolute;
-          top: 0;
+          top: 0px;
+          width: 100%;
+          background: #000;
+          margin-top: -20px;
+          padding: 10px;
+          display: none;
+      }
+      .close{
+        text-align: right;
+        margin: 0 10px;
+        font-size: 1.4rem;
+        font-weight: bold;
+        display: block;
+        color: white;
+      }
+      .cursor{
+        opacity: 0.6;
+        cursor: pointer;
+      }
+      .cursor:hover{
+        opacity: 1;
+      }
+      .modal-content{
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .modal-content .mySlides,.caption-container{
+        flex: 1 1 100%;
+        position: relative;
+        color: white;
+      }
+      .modal-content .column{
+        flex: 1 1 25%;
+      }
+      .modal-content>a{
+        position: absolute;
+        color: white;
+        padding: 14px 16px;
+        background: rgba(1,1,1,0.5);
+        top: 28%;
+      }
+      .modal-content>a:hover{
+        cursor: pointer;
+        background: rgba(1,1,1,0.8);
+      }
+      .modal-content>a.next{
+        right: 10px;
+      }
+      .mySlides {
+        display: none;
+      }
+      .mySlides img{
+        vertical-align: middle;
+      }
+      .mySlides .numbertext{
+        position: absolute;
+        padding: 10px;
+        text-shadow: 1px 1px 0px #0128ff;
+      }
+      .caption-container{
+        text-align: center;
+        padding: 8px 4px;
+        border: 1px solid rebeccapurple;
+        margin: 0;
+      }
+
+
+      .active_mySlides{
+        display: block;
+      }
+      .active_demo{
+        opacity: 1 !important;
       }
   </style>
+  <script>
+    var slideIndex=1;
+    function closeModal(){
+      myModal.style.display="none";
+    }
+    function openModal(){
+      myModal.style.display="block";
+    }
+    function currentSlide(position){
+      slideIndex = position;
+      show();
+    }
+    function plusSlides(plus){
+      slideIndex+=plus;
+      show();
+    }
+    function show(){
+      let mySlides = document.querySelectorAll('.mySlides');
+      let demos = document.querySelectorAll('.demo');
+      if(slideIndex<1){
+        slideIndex = mySlides.length;
+      }
+      if(slideIndex>mySlides.length){
+        slideIndex = 1;
+      }
+      for(let i =0;i<mySlides.length;i++){
+        mySlides[i].classList.remove('active_mySlides');
+        demos[i].classList.remove('active_demo');
+      }
+        mySlides[slideIndex-1].classList.add('active_mySlides');
+        demos[slideIndex-1].classList.add('active_demo');
+
+    }
+  </script>
 </div>
 
 </body>
