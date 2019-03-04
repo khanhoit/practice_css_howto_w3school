@@ -1,76 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>8 img zooms</title>
 </head>
+
 <body>
     <h2>zooms image</h2>
     <div id="container">
-        <img id="img" src="https://picsum.photos/200/200" alt ="img">
+        <img id="img" src="https://picsum.photos/200/200" alt="img" width="100%">
         <div id="result">
 
         </div>
     </div>
     <style>
-        h2{
+        h2 {
             margin-top: 500px;
         }
-        #container{
+
+        #container {
             position: relative;
             display: inline-block;
         }
-        #result{
+
+        #result {
             width: 200px;
             height: 200px;
             overflow: hidden;
             border: 1px solid red;
         }
-        .myLens{
+
+        .myLens {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border: 1px solid gray;
             top: 0;
         }
     </style>
     <script>
         zooms_img();
-        function zooms_img(){
-
+        function zooms_img() {
             let lens = document.createElement("DIV");
-            lens.setAttribute("class","myLens");
-            lens.setAttribute("id","lens");
-            container.insertAdjacentElement('afterbegin',lens);
-            img.addEventListener("mousemove",moveLen);
-            lens.addEventListener("mousemove",moveLen2);
+            lens.setAttribute("class", "myLens");
+            lens.setAttribute("id", "lens");
+            container.insertAdjacentElement('afterbegin', lens);
+            let x = result.offsetHeight/lens.offsetHeight;
+            let y = result.offsetWidth/lens.offsetWidth;
+        
+            console.log(result.offsetWidth);
+            
+            result.style.backgroundImage  = "url("+img.src + ")";
+            result.style.backgroundSize = (img.width * x + "px " + (img.height * y) + "px" );
+
+            img.addEventListener("mousemove", moveLen);
+            lens.addEventListener("mousemove", moveLen);
+        
         }
-        function moveLen(e){
-            e.preventDefault();
-            var x = e.offsetX;
-            var y = e.offsetY;
-            console.log(x,y);
-            
-            x = x - (lens.offsetWidth/2)
-            y = y - (lens.offsetHeight/2)
-            
-            if(x<0) x=0;
-            if(y<0) y=0;
-            if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
-            if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+        function moveLen(e) {
+            //    lens
+            let { x, y } = cursorPos(e);
+            let lens = document.getElementById("lens");
+            x = x - lens.offsetWidth / 2;
+            y = y - lens.offsetHeight / 2;            
+            if(x<0){
+                x=0;
+            }
+            if(y<0){
+                y=0;
+            }          
+            if(x>(img.offsetWidth-lens.offsetWidth)){
+                x = img.offsetWidth-lens.offsetWidth;
+            }  
+            if(y>(img.offsetHeight-lens.offsetHeight)){
+                y = img.offsetHeight-lens.offsetHeight;
+            }  
             lens.style.left = x + "px";
-            lens.style.top = y + "px";            
+            lens.style.top = y + "px";
+            result.style.backgroundPosition ="-"+img.offsetWidth/lens.offsetWidth * x +"px -" +img.offsetHeight/lens.offsetHeight*y + "px";
         }
 
-        function moveLen2(e){
-            console.log(e.offsetX,e.offsetY);
-            
-            // lens.style.left = e.offsetX + lens.style.left;
-            // lens.style.top = e.offsetY + lens.style.top;
+        function cursorPos(e) {
+            let crd = img.getBoundingClientRect();
+            let x = e.clientX - crd.left;
+            let y = e.clientY - crd.top | 0;
+
+            return { x: x, y: y };
+
         }
-       
     </script>
 </body>
+
 </html>
